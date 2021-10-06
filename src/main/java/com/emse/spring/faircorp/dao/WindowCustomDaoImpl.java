@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class WindowDaoCustomImpl implements WindowCustomDao{
+public class WindowCustomDaoImpl implements WindowCustomDao{
     @PersistenceContext
     private EntityManager em;
 

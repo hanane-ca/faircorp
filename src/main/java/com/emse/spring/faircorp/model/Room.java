@@ -20,10 +20,10 @@ public class Room {
     private String name;
 
     @Column
-    private double currentTemp;
+    private Double currentTemp;
 
     @Column
-    private double targetTemp;
+    private Double targetTemp;
 
 
     @OneToMany(mappedBy = "room")
