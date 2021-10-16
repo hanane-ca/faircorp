@@ -30,7 +30,7 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private Set<Window> windows;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Building building;
 
     Room(){
