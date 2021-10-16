@@ -29,6 +29,12 @@ public class Window {
         this.name = name;
     }
 
+    public Window(Room room, String name, WindowStatus windowStatus) {
+        this.room = room;
+        this.name = name;
+        this.windowStatus = windowStatus;
+    }
+
     public Long getId() {
         return this.id;
     }
@@ -39,6 +45,18 @@ public class Window {
 
     public String getName() {
         return name;
+    }
+
+    public void setWindowStatus(WindowStatus windowStatus) {
+        this.windowStatus = windowStatus;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     public void setName(String name) {

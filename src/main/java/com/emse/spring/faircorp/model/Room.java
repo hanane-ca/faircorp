@@ -1,7 +1,5 @@
 package com.emse.spring.faircorp.model;
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -32,9 +30,16 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private Set<Window> windows;
 
+    @ManyToOne(optional = false)
+    private Building building;
+
     Room(){
 
     }
+
+    public Room(Integer floor, String name){
+        this.floor = floor;
+        this.name = name;}
 
     Room(Integer floor, String name, double currentTemp, double targetTemp){
         this.floor = floor;
