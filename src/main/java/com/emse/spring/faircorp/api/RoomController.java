@@ -87,7 +87,7 @@ public class RoomController {
         Building building=buildingDao.getById(roomdto.getBuildingId());
         Room room =null;
         if(roomdto.getId()==null){
-            room=roomDao.save(new Room(roomdto.getFloor(), roomdto.getName(),building));
+            room=roomDao.save(new Room(roomdto.getName(),roomdto.getFloor(),building));
 
         }else {
             room=roomDao.getById(roomdto.getId());

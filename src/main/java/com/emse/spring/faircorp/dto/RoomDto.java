@@ -4,44 +4,12 @@ import com.emse.spring.faircorp.model.Room;
 public class RoomDto {
     private Long id;
     private String name;
-    private Integer floor;
+    private int floor;
     private Double currentTemp;
     private Double targetTemp;
     private Long buildingId;
 
     public RoomDto() {
-    }
-
-    public Integer getFloor() {
-        return floor;
-    }
-
-    public void setFloor(Integer floor) {
-        this.floor = floor;
-    }
-
-    public Double getCurrentTemp() {
-        return currentTemp;
-    }
-
-    public void setCurrentTemp(Double currentTemp) {
-        this.currentTemp = currentTemp;
-    }
-
-    public Double getTargetTemp() {
-        return targetTemp;
-    }
-
-    public void setTargetTemp(Double targetTemp) {
-        this.targetTemp = targetTemp;
-    }
-
-    public Long getBuildingId() {
-        return buildingId;
-    }
-
-    public void setBuildingId(Long buildingId) {
-        this.buildingId = buildingId;
     }
 
     public RoomDto(Room room) {
@@ -69,4 +37,35 @@ public class RoomDto {
         this.name = name;
     }
 
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
+    public Double getCurrentTemp() {
+        return currentTemp;
+    }
+
+    public void setCurrentTemp(Double currentTemp) {
+        this.currentTemp = currentTemp;
+    }
+
+    public Double getTargetTemp() {
+        return targetTemp;
+    }
+
+    public void setTargetTemp(Double targetTemp) {
+        this.targetTemp = targetTemp;
+    }
+
+    public Long getBuildingId() {
+        return buildingId;
+    }
+
+    public void setBuildingId(Long buildingId) {
+        this.buildingId = buildingId;
+    }
 }

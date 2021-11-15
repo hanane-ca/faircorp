@@ -4,25 +4,21 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table
 public class Room {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @Column(nullable = false)
-    private Integer floor;
+    private int floor;
 
     @Column(nullable = false)
     private String name;
 
-    @Column
     private Double currentTemp;
 
-    @Column
     private Double targetTemp;
-
 
     @OneToMany(mappedBy = "room")
     private Set<Heater> heaters;
@@ -33,42 +29,27 @@ public class Room {
     @ManyToOne(optional = false)
     private Building building;
 
-    public void setCurrentTemp(Double currentTemp) {
-        this.currentTemp = currentTemp;
-    }
+    public Room(){}
 
-    public void setTargetTemp(Double targetTemp) {
-        this.targetTemp = targetTemp;
-    }
-
-    public Building getBuilding() {
-        return building;
-    }
-
-    public void setBuilding(Building building) {
-        this.building = building;
-    }
-
-    public Room(Integer floor, String name,Building building){
+    public Room(String name,int floor,Building building){
         this.floor = floor;
         this.name = name;
         this.building=building;
     }
 
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getFloor() {
+    public int getFloor() {
         return floor;
     }
 
-    public void setFloor(Integer floor) {
+    public void setFloor(int floor) {
         this.floor = floor;
     }
 
@@ -80,19 +61,19 @@ public class Room {
         this.name = name;
     }
 
-    public double getCurrentTemp() {
+    public Double getCurrentTemp() {
         return currentTemp;
     }
 
-    public void setCurrentTemp(double currentTemp) {
+    public void setCurrentTemp(Double currentTemp) {
         this.currentTemp = currentTemp;
     }
 
-    public double getTargetTemp() {
+    public Double getTargetTemp() {
         return targetTemp;
     }
 
-    public void setTargetTemp(double targetTemp) {
+    public void setTargetTemp(Double targetTemp) {
         this.targetTemp = targetTemp;
     }
 
@@ -110,5 +91,13 @@ public class Room {
 
     public void setWindows(Set<Window> windows) {
         this.windows = windows;
+    }
+
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
     }
 }
