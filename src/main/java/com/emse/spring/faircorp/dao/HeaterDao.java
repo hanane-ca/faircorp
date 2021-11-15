@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface HeaterDao extends JpaRepository<Heater, Long>, HeaterCustomDao {
     @Modifying
-    @Query("delete from Heater c where c.room.id = ?1")
-    void deleteByRoom(Long name);
+    @Query("delete from Heater c where c.room.id=?1")
+    void deleteByHeater(Long id);
 
     List<Heater> findByRoomId(Long room_id);
 }

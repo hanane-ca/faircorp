@@ -7,6 +7,7 @@ public class RoomDto {
     private Integer floor;
     private Double currentTemp;
     private Double targetTemp;
+    private Long buildingId;
 
     public RoomDto() {
     }
@@ -35,6 +36,13 @@ public class RoomDto {
         this.targetTemp = targetTemp;
     }
 
+    public Long getBuildingId() {
+        return buildingId;
+    }
+
+    public void setBuildingId(Long buildingId) {
+        this.buildingId = buildingId;
+    }
 
     public RoomDto(Room room) {
         this.id = room.getId();
@@ -42,6 +50,7 @@ public class RoomDto {
         this.floor = room.getFloor();
         this.currentTemp = room.getCurrentTemp();
         this.targetTemp = room.getTargetTemp();
+        this.buildingId=room.getBuilding().getId();
     }
 
     public Long getId() {

@@ -30,23 +30,31 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private Set<Window> windows;
 
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = false)
     private Building building;
 
-    Room(){
-
+    public void setCurrentTemp(Double currentTemp) {
+        this.currentTemp = currentTemp;
     }
 
-    public Room(Integer floor, String name){
-        this.floor = floor;
-        this.name = name;}
-
-    Room(Integer floor, String name, double currentTemp, double targetTemp){
-        this.floor = floor;
-        this.name = name;
-        this.currentTemp = currentTemp;
+    public void setTargetTemp(Double targetTemp) {
         this.targetTemp = targetTemp;
     }
+
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
+    }
+
+    public Room(Integer floor, String name,Building building){
+        this.floor = floor;
+        this.name = name;
+        this.building=building;
+    }
+
 
     public long getId() {
         return id;

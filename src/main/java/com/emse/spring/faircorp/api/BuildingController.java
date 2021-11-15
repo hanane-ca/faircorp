@@ -42,16 +42,26 @@ public class BuildingController {
         return buildingDao.findAll().stream().map(BuildingDto::new).collect(Collectors.toList());
     }
 
+    @GetMapping(path = "/{building_id}")
+    public BuildingDto findById(@PathVariable Long building_id) {
+        return buildingDao.findById(building_id).map(BuildingDto::new).orElse(null);
+    }
+
+    @DeleteMapping(path = "/{building_id}")
+    public void delete(@PathVariable Long building_id) {
+        buildingDao.deleteById(building_id);
+    }
+
     @PostMapping
     public BuildingDto create(@RequestBody BuildingDto buildingdto){
-        Building building =null;
+        Building building=null;
         if(buildingdto.getId()==null){
-            building=buildingDao.save(new Building(buildingdto.getNumberOfRooms(),buildingdto.getName()));
+            building=buildingDao.save(new Building(buildingdto.getOutsideTemperature()));
 
         }else {
             building=buildingDao.getById(buildingdto.getId());
-            building.setName(buildingdto.getName());
-            building.setNumberOfRooms(buildingdto.getNumberOfRooms());
+            buildingdto.setOutsideTemperature(buildingdto.getOutsideTemperature());
+
         }
         return new BuildingDto(building);
     }

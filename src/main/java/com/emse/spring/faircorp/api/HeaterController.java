@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api/heater")
+@RequestMapping("/api/heaters")
 @Transactional
 public class HeaterController {
     @Autowired
@@ -31,9 +31,9 @@ public class HeaterController {
         return heaterDao.findAll().stream().map(HeaterDto::new).collect(Collectors.toList());
     }
 
-    @GetMapping(path = "/{id}")
-    public HeaterDto findById(@PathVariable Long id) {
-        return heaterDao.findById(id).map(HeaterDto::new).orElse(null);
+    @GetMapping(path = "/{heater_id}")
+    public HeaterDto findById(@PathVariable Long heater_id) {
+        return heaterDao.findById(heater_id).map(HeaterDto::new).orElse(null);
     }
 
 
@@ -47,13 +47,15 @@ public class HeaterController {
         else {
             heater = heaterDao.getById(dto.getId());
             heater.setHeaterStatus(dto.getHeaterStatus());
+            heater.setName(dto.getName());
+            heater.setPower(dto.getPower());
         }
         return new HeaterDto(heater);
     }
 
-    @DeleteMapping(path = "/{id}")
-    public void delete(@PathVariable Long id) {
-        heaterDao.deleteById(id);
+    @DeleteMapping(path = "/{heater_id}")
+    public void delete(@PathVariable Long heater_id) {
+        heaterDao.deleteById(heater_id);
     }
 }
 

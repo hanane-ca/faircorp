@@ -1,5 +1,6 @@
 package com.emse.spring.faircorp.api;
 
+import com.emse.spring.faircorp.dao.BuildingDao;
 import com.emse.spring.faircorp.dao.HeaterDao;
 import com.emse.spring.faircorp.dao.RoomDao;
 import com.emse.spring.faircorp.dao.WindowDao;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api/room")
+@RequestMapping("/api/rooms")
 @Transactional
 public class RoomController {
     @Autowired
@@ -24,21 +25,24 @@ public class RoomController {
     private final WindowDao windowDao;
     @Autowired
     private final HeaterDao heaterDao;
+    @Autowired
+    private final BuildingDao buildingDao;
 
-    public RoomController(RoomDao roomDao,WindowDao windowDao,HeaterDao heaterDao) {
+    public RoomController(RoomDao roomDao,WindowDao windowDao,HeaterDao heaterDao, BuildingDao buildingDao) {
         this.roomDao = roomDao;
         this.windowDao = windowDao;
         this.heaterDao = heaterDao;
+        this.buildingDao = buildingDao;
     }
 
     @GetMapping
     public List<RoomDto> findAll() {
-        return roomDao.findAll().stream().map(RoomDto::new).collect(Collectors.toList());  // (6)
+        return roomDao.findAll().stream().map(RoomDto::new).collect(Collectors.toList());
     }
 
-    @GetMapping(path = "/{id}")
-    public RoomDto findById(@PathVariable Long id) {
-        return roomDao.findById(id).map(RoomDto::new).orElse(null); // (7)
+    @GetMapping(path = "/{room_id}")
+    public RoomDto findById(@PathVariable Long room_id) {
+        return roomDao.findById(room_id).map(RoomDto::new).orElse(null);
     }
 
     @DeleteMapping(path = "/{room_id}")
@@ -80,9 +84,10 @@ public class RoomController {
 
     @PostMapping
     public RoomDto create(@RequestBody RoomDto roomdto){
+        Building building=buildingDao.getById(roomdto.getBuildingId());
         Room room =null;
         if(roomdto.getId()==null){
-            room=roomDao.save(new Room(roomdto.getFloor(),roomdto.getName()));
+            room=roomDao.save(new Room(roomdto.getFloor(), roomdto.getName(),building));
 
         }else {
             room=roomDao.getById(roomdto.getId());

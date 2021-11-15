@@ -9,28 +9,17 @@ public class Building {
     @Id
     @GeneratedValue
     private long id;
-
-    @Column(nullable = false)
-    private Integer numberOfRooms;
-
-    @Column(nullable = false)
-    private String name;
+    private double outsideTemperature;
 
     @OneToMany(mappedBy = "building")
     private Set<Room> room;
 
-    Building(){
+    public Building(){
 
     }
 
-    Building(long id, Integer numberOfRooms, String name, Set<Room> room){
-        this.id = id;
-        this.name = name;
-        this.numberOfRooms = numberOfRooms;
-        this.room = room;
-    }
-
-    public Building(Integer numberOfRooms, String name) {
+    public Building(double outsideTemperature){
+        this.outsideTemperature = outsideTemperature;
     }
 
     public long getId() {
@@ -41,20 +30,12 @@ public class Building {
         this.id = id;
     }
 
-    public Integer getNumberOfRooms() {
-        return numberOfRooms;
+    public double getOutsideTemperature() {
+        return outsideTemperature;
     }
 
-    public void setNumberOfRooms(Integer numberOfRooms) {
-        this.numberOfRooms = numberOfRooms;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setOutsideTemperature(double outsideTemperature) {
+        this.outsideTemperature = outsideTemperature;
     }
 
     public Set<Room> getRoom() {

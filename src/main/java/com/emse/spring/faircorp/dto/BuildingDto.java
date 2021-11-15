@@ -6,8 +6,7 @@ import java.util.*;
 public class BuildingDto {
 
     private Long id;
-    private String name;
-    private Integer numberOfRooms;
+    private Double outsideTemperature;
 
     BuildingDto(){
 
@@ -15,31 +14,22 @@ public class BuildingDto {
 
     public BuildingDto(Building building){
         this.id = building.getId();
-        this.name = building.getName();
-        this.numberOfRooms = building.getNumberOfRooms();
+        this.outsideTemperature=building.getOutsideTemperature();
     }
 
     public Long getId() {
         return id;
     }
 
+    public Double getOutsideTemperature() {
+        return outsideTemperature;
+    }
+
+    public void setOutsideTemperature(Double outsideTemperature) {
+        this.outsideTemperature = outsideTemperature;
+    }
+
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getNumberOfRooms() {
-        return numberOfRooms;
-    }
-
-    public void setNumberOfRooms(Integer numberOfRooms) {
-        this.numberOfRooms = numberOfRooms;
     }
 }
