@@ -9,5 +9,8 @@ public class FaircorpApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FaircorpApplication.class, args);
 	}
+	/*
+
+	 */
 
 }

@@ -12,7 +12,7 @@ public class Building {
     private double outsideTemperature;
 
     @OneToMany(mappedBy = "building")
-    private Set<Room> room;
+    private Set<Room> rooms;
 
     public Building(){
 
@@ -39,11 +39,11 @@ public class Building {
     }
 
     public Set<Room> getRoom() {
-        return room;
+        return rooms;
     }
 
-    public void setRoom(Set<Room> room) {
-        this.room = room;
+    public void setRoom(Set<Room> rooms) {
+        this.rooms = rooms;
     }
 
 }
