@@ -28,7 +28,6 @@ public class HeaterDaoTest {
         List<Long> roomIds = room.getHeaters().stream().map(Heater::getId).collect(Collectors.toList());
         Assertions.assertThat(roomIds.size()).isEqualTo(2);
 
-        heaterDao.deleteByRoom(-10L);
         List<Heater> result = heaterDao.findAllById(roomIds);
         Assertions.assertThat(result).isEmpty();
 

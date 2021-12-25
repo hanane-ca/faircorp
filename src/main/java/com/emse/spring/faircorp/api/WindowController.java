@@ -14,8 +14,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/api/windows")
+
+@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
+
 @Transactional
 public class WindowController {
     @Autowired
