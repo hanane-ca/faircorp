@@ -18,6 +18,10 @@ import java.util.stream.Collectors;
 @CrossOrigin
 @RequestMapping("/api/rooms")
 @Transactional
+/**
+ * Represents a REST controller for the room with Spring.
+ * It can get the rooms list, add a room, get a single room, delete a room, switch the heater status or room status .
+ */
 public class RoomController {
     @Autowired
     private final RoomDao roomDao;
@@ -36,16 +40,30 @@ public class RoomController {
     }
 
     @GetMapping
+    /**
+     * A REST request to Get the rooms list.
+     * @return List<RoomDto>.
+     */
     public List<RoomDto> findAll() {
         return roomDao.findAll().stream().map(RoomDto::new).collect(Collectors.toList());
     }
 
     @GetMapping(path = "/{room_id}")
+    /**
+     * A REST request to Get the room by id.
+     * @return RoomDto A class that its constructor contains infos about the room.
+     * @param room_id the id of the room you want to get.
+     */
     public RoomDto findById(@PathVariable Long room_id) {
         return roomDao.findById(room_id).map(RoomDto::new).orElse(null);
     }
 
     @DeleteMapping(path = "/{room_id}")
+    /**
+     * A REST request to Delete the room by id.
+     * @return void.
+     * @param room_id the id of the room you want to get.
+     */
     public void delete(@PathVariable Long room_id) {
         List<Window> windows=windowDao.findWindows(room_id);
         List<Heater> heaters = heaterDao.findByRoomId(room_id);
@@ -59,6 +77,11 @@ public class RoomController {
     }
 
     @PutMapping(path = "/{room_id}/switchWindow")
+    /**
+     * A REST request to update the window status (OPEN/CLOSED).
+     * @return void.
+     * @param room_id the id of the room you want to change its windows.
+     */
     public void switchWindows(@PathVariable Long room_id){
         List<Window> windows= windowDao.findWindows(room_id);
         for (Window window:windows){
@@ -71,6 +94,11 @@ public class RoomController {
         }
     }
     @PutMapping(path = "/{room_id}/switchHeaters")
+    /**
+     * A REST request to Update the heater status (ON/OFF).
+     * @return void.
+     * @param room_id the id of the room you want to change its heaters.
+     */
     public void switchHeaters(@PathVariable Long room_id) {
         List<Heater> heaters = heaterDao.findByRoomId(room_id);
         for (Heater heater : heaters) {
@@ -83,6 +111,11 @@ public class RoomController {
     }
 
     @PostMapping
+    /**
+     * A REST request to Create (POST) a room.
+     * @return RoomDto A class that its constructor contains infos about the room.
+     * @param roomdto a room with a constructor (id, name, floor, currentTemp, targetTemp, buildingId).
+     */
     public RoomDto create(@RequestBody RoomDto roomdto){
         Building building=buildingDao.getById(roomdto.getBuildingId());
         Room room =null;

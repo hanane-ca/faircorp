@@ -6,6 +6,9 @@ import javax.persistence.*;
 
 @Entity
 @Table
+/**
+ * This is an entity that represents a model for the heaters.
+ */
 public class Heater {
 
     @Id
@@ -35,34 +38,70 @@ public class Heater {
         this.heaterStatus = heaterStatus;
     }
 
+    /**
+     * A getter to get id of the heater.
+     * @return Long returns the id of the heater.
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * A setter to set id.
+     * @return void.
+     * @param id the heater id.
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * A getter to get the name of the heater.
+     * @return String returns the name of the heater.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * A setter to set the name of the heater.
+     * @return void.
+     * @param name the heater name.
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * A getter to get the power of the heater.
+     * @return Long returns the power of the heater.
+     */
     public Long getPower() {
         return power;
     }
 
+    /**
+     * A setter to set the power of the heater.
+     * @return void.
+     * @param power the heater power.
+     */
     public void setPower(long power) {
         this.power = power;
     }
 
+    /**
+     * A getter to get the room where the heater is located.
+     * @return Room returns the room of the heater.
+     */
     public Room getRoom() {
         return room;
     }
 
+    /**
+     * A setter to set the room where the heater is located.
+     * @return void.
+     * @param room the room where the heater is located.
+     */
     public void setRoom(Room room) {
         this.room = room;
     }
