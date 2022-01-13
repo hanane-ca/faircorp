@@ -4,11 +4,11 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "RWINDOW")
 /**
  * This is an entity that represents a model for the windows.
  */
+@Entity
+@Table(name = "RWINDOW")
 public class Window {
     @Id
     @GeneratedValue
@@ -48,7 +48,6 @@ public class Window {
 
     /**
      * A setter to set id.
-     * @return void.
      * @param id the window id.
      */
     public void setId(Long id) {
@@ -65,7 +64,6 @@ public class Window {
 
     /**
      * A setter to set window status (OPEN, CLOSED).
-     * @return void.
      * @param windowStatus the status of the window.
      */
     public void setWindowStatus(WindowStatus windowStatus) {
@@ -82,7 +80,6 @@ public class Window {
 
     /**
      * A setter to set the room in which the window belongs.
-     * @return void.
      * @param room the room that we want to set.
      */
     public void setRoom(Room room) {
@@ -91,7 +88,6 @@ public class Window {
 
     /**
      * A setter to set name of the window.
-     * @return void.
      * @param name the name of the window.
      */
     public void setName(String name) {
@@ -108,8 +104,8 @@ public class Window {
 
     /**
      * A setter to set window status (OPEN, CLOSED).
-     * @return void.
      * @param windowStatus the status of the window.
+     * @param room the room where we want to change the window's status
      */
     public void setWindowStatus(WindowStatus windowStatus,Room room) {
         this.windowStatus = windowStatus;

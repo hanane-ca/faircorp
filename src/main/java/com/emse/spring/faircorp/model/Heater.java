@@ -4,11 +4,11 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 
-@Entity
-@Table
 /**
  * This is an entity that represents a model for the heaters.
  */
+@Entity
+@Table
 public class Heater {
 
     @Id
@@ -48,7 +48,6 @@ public class Heater {
 
     /**
      * A setter to set id.
-     * @return void.
      * @param id the heater id.
      */
     public void setId(long id) {
@@ -65,7 +64,6 @@ public class Heater {
 
     /**
      * A setter to set the name of the heater.
-     * @return void.
      * @param name the heater name.
      */
     public void setName(String name) {
@@ -82,7 +80,6 @@ public class Heater {
 
     /**
      * A setter to set the power of the heater.
-     * @return void.
      * @param power the heater power.
      */
     public void setPower(long power) {
@@ -99,7 +96,6 @@ public class Heater {
 
     /**
      * A setter to set the room where the heater is located.
-     * @return void.
      * @param room the room where the heater is located.
      */
     public void setRoom(Room room) {

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.emse.spring.faircorp.api"},{"l":"com.emse.spring.faircorp.model"}]
