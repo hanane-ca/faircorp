@@ -13,6 +13,9 @@
 - This is the link for the git repo which contains the front end for the web (Vue.js) using this api : https://github.com/hanane-ca/faircorp-frontend.git  
 
 
+- documentation : [readthedocs](https://readthedocs.org/projects/faircorp/)
+
+
 #### Contact us
 - For reporting usues you can do it in the issues section of this repository.
 - For contacting the developer for any other reason please email me at hanana.chrif-el-asri@etu.emse.fr
